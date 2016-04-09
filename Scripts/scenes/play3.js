@@ -10,12 +10,12 @@ var scenes;
      *
      * @class Scene
      */
-    var Scene = (function (_super) {
-        __extends(Scene, _super);
+    var Play3 = (function (_super) {
+        __extends(Play3, _super);
         /**
          * @constructor
          */
-        function Scene() {
+        function Play3() {
             _super.call(this);
         }
         /**
@@ -24,7 +24,7 @@ var scenes;
          * @method start
          * @return void
          */
-        Scene.prototype.start = function () {
+        Play3.prototype.start = function () {
         };
         /**
          * The update method updates the animation loop and other objects
@@ -32,7 +32,7 @@ var scenes;
          * @method update
          * @return void
          */
-        Scene.prototype.update = function () {
+        Play3.prototype.update = function () {
         };
         /**
          * The resize method is a procedure that sets variables and objects on screen resize
@@ -40,10 +40,10 @@ var scenes;
          * @method resize
          * @return void
          */
-        Scene.prototype.resize = function () {
+        Play3.prototype.resize = function () {
         };
-        return Scene;
+        return Play3;
     })(Physijs.Scene);
-    scenes.Scene = Scene;
+    scenes.Play3 = Play3;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=scene.js.map
+//# sourceMappingURL=play3.js.map
