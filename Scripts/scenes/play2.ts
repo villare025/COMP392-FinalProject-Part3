@@ -5,7 +5,7 @@ module scenes {
      * @class Scene
      */
     export class Play2 extends Physijs.Scene {
-       private havePointerLock: boolean;
+        private havePointerLock: boolean;
         private element: any;
 
 
@@ -1197,8 +1197,12 @@ module scenes {
 
             // Add custom coin imported from Blender
             this.setCoinMesh();
-
-            createjs.Sound.play("muse", 0, 0, 0, -1, 1);
+            
+            // Stop the layering of the background music aka just play ONCE dammit
+            // Via AbstractSoundInstance
+            //createjs.Sound.play("muse", 0, 0, 0, -1, 1);
+            var myBGMusic = createjs.Sound.play("../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3");
+            myBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
 
             // Collision Check
 
@@ -1210,6 +1214,8 @@ module scenes {
                     livesValue--;
 
                     if (livesValue <= 0) {
+                        // Stop BGMusic from playing into the Game OVER scene
+                        myBGMusic.stop();
                         //Game over yeaaAAAHHH H H H H HH
                         document.exitPointerLock();
                         this.children = []; //Clean up children objects
@@ -1383,7 +1389,8 @@ module scenes {
                     this.isGrounded = true;
                 }
                 if (event.name === "Door1") {
-
+                    // Stop BGMusic from playing into the next Level 3
+                    myBGMusic.stop();
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     currentScene = config.Scene.OVER;

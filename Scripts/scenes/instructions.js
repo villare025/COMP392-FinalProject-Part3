@@ -121,7 +121,8 @@ var scenes;
             this._setupCanvas();
         };
         return Instructions;
-    })(Physijs.Scene);
+    }(Physijs.Scene));
     scenes.Instructions = Instructions;
 })(scenes || (scenes = {}));
+
 //# sourceMappingURL=instructions.js.map
