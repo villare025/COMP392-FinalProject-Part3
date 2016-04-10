@@ -1393,6 +1393,7 @@ module scenes {
                     myBGMusic.stop();
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
+                    document.exitPointerLock();
                     currentScene = config.Scene.OVER;
                     changeScene();
                     scoreValue += bonusValue;
