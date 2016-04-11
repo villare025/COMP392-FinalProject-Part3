@@ -1086,7 +1086,7 @@ module scenes {
                 
                 // Move the Lava Floor
                 this.remove(this.ground);
-                this.ground.position.y += 0.0054;
+                this.ground.position.y += 0.006;
                 this.add(this.ground);
 
                 var time: number = performance.now();

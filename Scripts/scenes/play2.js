@@ -768,7 +768,7 @@ var scenes;
                 this.bonusLabel.text = "Bonus: " + bonusValue;
                 // Move the Lava Floor
                 this.remove(this.ground);
-                this.ground.position.y += 0.0054;
+                this.ground.position.y += 0.006;
                 this.add(this.ground);
                 var time = performance.now();
                 var delta = (time - this.prevTime) / 1000;
