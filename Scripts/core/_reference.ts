@@ -5,6 +5,7 @@
 /// <reference path="../scenes/scene.ts" />
 /// <reference path="../scenes/play.ts" />
 /// <reference path="../scenes/play2.ts" />
+/// <reference path="../scenes/play3.ts" />
 /// <reference path="../scenes/over.ts" />
 /// <reference path="../scenes/menu.ts" />
 /// <reference path="../scenes/instructions.ts" />

@@ -52,6 +52,7 @@ var highestScore: number;
 
 var play: scenes.Play;
 var play2: scenes.Play2;
+var play3: scenes.Play3;
 var menu: scenes.Menu;
 var over: scenes.Over;
 var instructions: scenes.Instructions;
@@ -64,15 +65,15 @@ var manifest = [
     { id: "hit", src: "../../Assets/audio/hit.wav" },
     { id: "coin", src: "../../Assets/audio/coin.mp3" },
     { id: "jump", src: "../../Assets/audio/Jump.wav" },
-    { id: "door", src: "../../Assets/audio/doorUnlock.mp3"},
-    { id: "lava", src: "../../Assets/audio/lavaburn.mp3"},
-    { id: "StartButton", src: "../../Assets/images/StartButton.png"},
-    { id: "RestartButton", src: "../../Assets/images/RestartButton.png"},
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png"},
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png"},
-    { id: "muse", src: "../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3"},
-    
-    ];
+    { id: "door", src: "../../Assets/audio/doorUnlock.mp3" },
+    { id: "lava", src: "../../Assets/audio/lavaburn.mp3" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "muse", src: "../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3" },
+
+];
 
 function preload(): void {
     assets = new createjs.LoadQueue();
@@ -170,7 +171,7 @@ function changeScene(): void {
             // show the MENU scene
             menu = new scenes.Menu();
             scene = menu;
-            console.log("Starting MENU Scene"); 
+            console.log("Starting MENU Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene
@@ -191,12 +192,19 @@ function changeScene(): void {
             scene = instructions;
             console.log("Starting INSTRUCTIONS Scene");
             break;
-            
+
         case config.Scene.PLAY2:
             //Show level 2
             play2 = new scenes.Play2();
             scene = play2;
             console.log("Starting LEVEL 2");
+            break;
+        case config.Scene.PLAY3:
+            //Show level 3
+            play3 = new scenes.Play3();
+            scene = play3;
+            console.log("Starting LEVEL 3");
+            break;
     }
 }
 

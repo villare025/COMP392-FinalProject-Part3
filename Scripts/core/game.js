@@ -47,6 +47,7 @@ var bonusValue;
 var highestScore;
 var play;
 var play2;
+var play3;
 var menu;
 var over;
 var instructions;
@@ -168,7 +169,15 @@ function changeScene() {
             play2 = new scenes.Play2();
             scene = play2;
             console.log("Starting LEVEL 2");
+            break;
+        case config.Scene.PLAY3:
+            //Show level 3
+            play3 = new scenes.Play3();
+            scene = play3;
+            console.log("Starting LEVEL 3");
+            break;
     }
 }
 window.onload = preload;
+
 //# sourceMappingURL=game.js.map

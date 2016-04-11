@@ -1058,7 +1058,7 @@ var scenes;
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.OVER;
+                    currentScene = config.Scene.PLAY3;
                     changeScene();
                     scoreValue += bonusValue;
                     _this.scoreLabel.text = "Score: " + scoreValue;
@@ -1122,7 +1122,8 @@ var scenes;
             this.stage.update();
         };
         return Play2;
-    })(scenes.Scene);
+    }(scenes.Scene));
     scenes.Play2 = Play2;
 })(scenes || (scenes = {}));
+
 //# sourceMappingURL=play2.js.map

@@ -1414,7 +1414,7 @@ module scenes {
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.OVER;
+                    currentScene = config.Scene.PLAY3;
                     changeScene();
                     scoreValue += bonusValue;
                     this.scoreLabel.text = "Score: " + scoreValue;
