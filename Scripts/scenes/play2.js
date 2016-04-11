@@ -3,12 +3,25 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/**
+ * Source File Name: play2.ts
+ * Authors: Angelina Gutierrez and Elaine Mae Villarino
+ * Last Modified by: Elaine Mae Villarino
+ * Date last modified: April 11, 2016
+ * Program description: Creates the second level of the game
+ */
+/**
+ * The Scenes module is a namespace to reference all scene objects
+ *
+ * @module scenes
+ */
 var scenes;
 (function (scenes) {
     /**
-     * The Scene class is a generic / custom Scene container
+     * The Play 2 class is where the main action occurs for the game level 2
      *
-     * @class Scene
+     * @class Play
+     * @param havePointerLock {boolean}
      */
     var Play2 = (function (_super) {
         __extends(Play2, _super);
@@ -636,36 +649,45 @@ var scenes;
                 var phongMaterial = new PhongMaterial({ color: 0xE7AB32 });
                 phongMaterial.emissive = new THREE.Color(0xE7AB32);
                 this.coinMaterial = Physijs.createMaterial((phongMaterial), 0.4, 0.6);
-                for (var count = 1; count <= 3; count++) {
+                for (var count = 1; count <= 4; count++) {
                     self.coins[count] = new Physijs.ConvexMesh(geometry, this.coinMaterial);
                     self.coins[count].receiveShadow = true;
                     self.coins[count].castShadow = true;
                     self.coins[count].name = "Coin";
                     console.log("Added Coin " + count + " to the Scene");
                 }
+                // Platform 2
                 if (self.door1.position.set(60, 5, -51)) {
                     self.coins[1].position.set(60, 5, 50);
-                    self.coins[2].position.set(-60, 5, -50);
+                    self.coins[2].position.set(60, 5, -50);
                     self.coins[3].position.set(-60, 5, 50);
+                    self.coins[4].position.set(-60, 5, -50);
                 }
-                if (self.door1.position.set(-60, 5, -51)) {
-                    self.coins[1].position.set(60, 5, -50);
-                    self.coins[2].position.set(60, 5, 50);
-                    self.coins[3].position.set(-60, 5, 50);
-                }
-                if (self.door1.position.set(60, 5, 51)) {
-                    self.coins[1].position.set(60, 5, -50);
-                    self.coins[2].position.set(-60, 5, -50);
-                    self.coins[3].position.set(-60, 5, 50);
-                }
+                // Platform 3
                 if (self.door1.position.set(-60, 5, 51)) {
-                    self.coins[1].position.set(60, 5, -50);
-                    self.coins[2].position.set(-60, 5, -50);
-                    self.coins[3].position.set(60, 5, 50);
+                    self.coins[1].position.set(60, 5, 50);
+                    self.coins[2].position.set(60, 5, -50);
+                    self.coins[3].position.set(-60, 5, 50);
+                    self.coins[4].position.set(-60, 5, -50);
+                }
+                // Platform 4
+                if (self.door1.position.set(60, 5, 51)) {
+                    self.coins[1].position.set(60, 5, 50);
+                    self.coins[2].position.set(60, 5, -50);
+                    self.coins[3].position.set(-60, 5, 50);
+                    self.coins[4].position.set(-60, 5, -50);
+                }
+                // Platform 5
+                if (self.door1.position.set(-60, 5, -51)) {
+                    self.coins[1].position.set(60, 5, 50);
+                    self.coins[2].position.set(60, 5, -50);
+                    self.coins[3].position.set(-60, 5, 50);
+                    self.coins[4].position.set(-60, 5, -50);
                 }
                 self.add(self.coins[1]);
                 self.add(self.coins[2]);
                 self.add(self.coins[3]);
+                self.add(self.coins[4]);
                 console.log("Added coins");
             });
         };
@@ -744,8 +766,9 @@ var scenes;
                 this.velocity = new Vector3();
                 bonusValue--;
                 this.bonusLabel.text = "Bonus: " + bonusValue;
+                // Move the Lava Floor
                 this.remove(this.ground);
-                this.ground.position.y += 0.01;
+                this.ground.position.y += 0.0054;
                 this.add(this.ground);
                 var time = performance.now();
                 var delta = (time - this.prevTime) / 1000;
@@ -1047,10 +1070,15 @@ var scenes;
                     _this.scoreLabel.text = "Score: " + scoreValue;
                 }
             });
-            // create parent-child relationship with camera and player
+            // Create parent-child relationship with camera and player
             this.player.add(camera);
             camera.rotation.set(0, 0, 0);
             camera.position.set(0, 1, 0);
+            // For level-building only 
+            // Sees a bird's eye view of the level
+            //camera = new PerspectiveCamera(35, config.Screen.RATIO, 0.1, 300);
+            //camera.position.set(0, 100, 100);
+            //camera.lookAt(new Vector3(0, 0, 0));
             this.simulate();
         };
         /**
@@ -1094,8 +1122,7 @@ var scenes;
             this.stage.update();
         };
         return Play2;
-    }(Physijs.Scene));
+    })(scenes.Scene);
     scenes.Play2 = Play2;
 })(scenes || (scenes = {}));
-
 //# sourceMappingURL=play2.js.map

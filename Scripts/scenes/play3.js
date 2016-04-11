@@ -43,8 +43,7 @@ var scenes;
         Play3.prototype.resize = function () {
         };
         return Play3;
-    }(Physijs.Scene));
+    })(Physijs.Scene);
     scenes.Play3 = Play3;
 })(scenes || (scenes = {}));
-
 //# sourceMappingURL=play3.js.map
