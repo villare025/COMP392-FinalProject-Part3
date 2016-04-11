@@ -1092,21 +1092,24 @@ module scenes {
 
                 var time: number = performance.now();
                 var delta: number = (time - this.prevTime) / 1000;
-
+                
+                // For a smoother jump, have the movements outside the isGrounded method.
+                if (this.keyboardControls.moveForward) {
+                    this.velocity.z -= 400.0 * delta;
+                }
+                if (this.keyboardControls.moveLeft) {
+                    this.velocity.x -= 400.0 * delta;
+                }
+                if (this.keyboardControls.moveBackward) {
+                    this.velocity.z += 400.0 * delta;
+                }
+                if (this.keyboardControls.moveRight) {
+                    this.velocity.x += 400.0 * delta;
+                }
+                
                 if (this.isGrounded) {
                     var direction = new Vector3(0, 0, 0);
-                    if (this.keyboardControls.moveForward) {
-                        this.velocity.z -= 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveLeft) {
-                        this.velocity.x -= 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveBackward) {
-                        this.velocity.z += 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveRight) {
-                        this.velocity.x += 400.0 * delta;
-                    }
+                    
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
                         if (this.player.position.y > 5) {

@@ -770,22 +770,28 @@ var scenes;
                 this.remove(this.ground);
                 this.ground.position.y += 0.0054;
                 this.add(this.ground);
+                /*
+                this.remove(this.platform1);
+                this.platform1.position.x += 0.005;
+                this.add(this.platform1);
+                */
                 var time = performance.now();
                 var delta = (time - this.prevTime) / 1000;
+                // For a smoother jump, have the movements outside the isGrounded method.
+                if (this.keyboardControls.moveForward) {
+                    this.velocity.z -= 400.0 * delta;
+                }
+                if (this.keyboardControls.moveLeft) {
+                    this.velocity.x -= 400.0 * delta;
+                }
+                if (this.keyboardControls.moveBackward) {
+                    this.velocity.z += 400.0 * delta;
+                }
+                if (this.keyboardControls.moveRight) {
+                    this.velocity.x += 400.0 * delta;
+                }
                 if (this.isGrounded) {
                     var direction = new Vector3(0, 0, 0);
-                    if (this.keyboardControls.moveForward) {
-                        this.velocity.z -= 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveLeft) {
-                        this.velocity.x -= 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveBackward) {
-                        this.velocity.z += 400.0 * delta;
-                    }
-                    if (this.keyboardControls.moveRight) {
-                        this.velocity.x += 400.0 * delta;
-                    }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
                         if (this.player.position.y > 5) {
