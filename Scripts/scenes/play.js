@@ -816,6 +816,67 @@ var scenes;
                 this.mouseControls.pitch = 0;
                 this.mouseControls.yaw = 0;
                 this.prevTime = time;
+                // For Switching Scenes
+                if (this.keyboardControls.switchLevelOne) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAY;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchLevelTwo) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAY2;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchLevelThree) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAY3;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchMenu) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.MENU;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchOver) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.OVER;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchInstructions) {
+                    document.exitPointerLock();
+                    this.children = []; //Clean up children objects
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.INSTRUCTIONS;
+                    changeScene();
+                }
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));
@@ -881,6 +942,7 @@ var scenes;
             // Via AbstractSoundInstance
             //createjs.Sound.play("muse", 0, 0, 0, -1, 1);
             var myBGMusic = createjs.Sound.play("../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3");
+            myBGMusic.stop();
             myBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             // Collision Check
             this.player.addEventListener('collision', function (event) {

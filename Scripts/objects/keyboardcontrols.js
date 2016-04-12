@@ -32,6 +32,27 @@ var objects;
                     break;
                 case 81:
                     this.paused = (this.paused) ? false : true;
+                    break;
+                case 49: /*1*/
+                case 97:
+                    this.switchLevelOne = true;
+                    break;
+                case 50: /*2*/
+                case 98:
+                    this.switchLevelTwo = true;
+                    break;
+                case 51: /*3*/
+                case 99:
+                    this.switchLevelThree = true;
+                    break;
+                case 77:
+                    this.switchMenu = true;
+                    break;
+                case 79:
+                    this.switchOver = true;
+                    break;
+                case 72:
+                    this.switchInstructions = true;
             }
         };
         KeyboardControls.prototype.onKeyUp = function (event) {
