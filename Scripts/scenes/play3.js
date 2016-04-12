@@ -1062,10 +1062,12 @@ var scenes;
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.OVER;
                     scoreValue += bonusValue;
                     _this.scoreLabel.text = "Score: " + scoreValue;
-                    bonusValue = 9999;
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.OVER;
                     changeScene();
                 }
                 if (event.name === "Coin") {

@@ -18,7 +18,7 @@ module scenes {
      * @param havePointerLock {boolean}
      */
     export class Play3 extends scenes.Scene {
-        
+
         private havePointerLock: boolean;
         private element: any;
 
@@ -1106,10 +1106,10 @@ module scenes {
                 if (this.keyboardControls.moveRight) {
                     this.velocity.x += 400.0 * delta;
                 }
-                
+
                 if (this.isGrounded) {
                     var direction = new Vector3(0, 0, 0);
-                    
+
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
                         if (this.player.position.y > 5) {
@@ -1421,11 +1421,14 @@ module scenes {
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.OVER;
                     scoreValue += bonusValue;
                     this.scoreLabel.text = "Score: " + scoreValue;
-                    bonusValue = 9999;
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.OVER;
                     changeScene();
+
                 }
                 if (event.name === "Coin") {
                     createjs.Sound.play("coin");
