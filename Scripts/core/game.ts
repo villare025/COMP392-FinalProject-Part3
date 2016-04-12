@@ -45,10 +45,10 @@ var currentScene: number;
 var renderer: Renderer;
 var camera: PerspectiveCamera;
 
-var scoreValue: number;
-var livesValue: number;
-var bonusValue: number;
-var highestScore: number;
+var scoreValue: number = 0;
+var livesValue: number = 5;
+var bonusValue: number = 9999;
+var highestScore: number = 0;
 
 var play: scenes.Play;
 var play2: scenes.Play2;

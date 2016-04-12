@@ -69,9 +69,9 @@ var scenes;
             this.keyboardControls = new objects.KeyboardControls();
             this.mouseControls = new objects.MouseControls();
             // initialize  score and lives values
-            scoreValue = 0;
-            livesValue = 5;
-            bonusValue = 9999;
+            //scoreValue = 0;
+            //livesValue = 5;
+            //bonusValue = 9999;
         };
         /**
          * This method sets up the scoreboard for the scene
@@ -143,14 +143,14 @@ var scenes;
          * @return void
          */
         Play2.prototype.addLavaFloor = function () {
-            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/lava.gif');
+            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/water-texture.jpg');
             this.groundTexture.wrapS = THREE.RepeatWrapping;
             this.groundTexture.wrapT = THREE.RepeatWrapping;
-            this.groundTexture.repeat.set(50, 50);
+            this.groundTexture.repeat.set(1, 1);
             this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/RockErodeNormal.png');
             this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
             this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
-            this.groundTextureNormal.repeat.set(50, 50);
+            this.groundTextureNormal.repeat.set(1, 1);
             this.groundMaterial = new PhongMaterial();
             this.groundMaterial.map = this.groundTexture;
             //this.groundMaterial.bumpMap = this.groundTextureNormal;
@@ -605,7 +605,7 @@ var scenes;
          * @return void
          */
         Play2.prototype.setDoor = function () {
-            this.door1Texture = new THREE.TextureLoader().load('../../Assets/images/doorsTextureNo6901.jpg');
+            this.door1Texture = new THREE.TextureLoader().load('../../Assets/images/doorsTextureNo3515.jpg');
             this.door1Material = new PhongMaterial();
             this.door1Material.map = this.door1Texture;
             this.door1Material.bumpScale = 0.2;
@@ -891,6 +891,9 @@ var scenes;
                         document.exitPointerLock();
                         _this.children = []; //Clean up children objects
                         console.log(_this);
+                        if (scoreValue > highestScore) {
+                            highestScore = scoreValue;
+                        }
                         currentScene = config.Scene.OVER;
                         changeScene();
                     }
@@ -1060,9 +1063,10 @@ var scenes;
                     console.log("Booped Door 1");
                     document.exitPointerLock();
                     currentScene = config.Scene.PLAY3;
-                    changeScene();
                     scoreValue += bonusValue;
                     _this.scoreLabel.text = "Score: " + scoreValue;
+                    bonusValue = 9999;
+                    changeScene();
                 }
                 if (event.name === "Coin") {
                     createjs.Sound.play("coin");

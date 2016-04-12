@@ -293,9 +293,9 @@ module scenes {
             this.mouseControls = new objects.MouseControls()
 
             // initialize  score and lives values
-            scoreValue = 0;
-            livesValue = 5;
-            bonusValue = 9999;
+            //scoreValue = 0;
+            //livesValue = 5;
+            //bonusValue = 9999;
         }
         /**
          * This method sets up the scoreboard for the scene
@@ -1245,6 +1245,9 @@ module scenes {
                         document.exitPointerLock();
                         this.children = []; //Clean up children objects
                         console.log(this);
+                        if (scoreValue > highestScore) {
+                            highestScore = scoreValue;
+                        }
                         currentScene = config.Scene.OVER;
                         changeScene();
                     }
@@ -1419,11 +1422,10 @@ module scenes {
                     console.log("Booped Door 1");
                     document.exitPointerLock();
                     currentScene = config.Scene.OVER;
-                    changeScene();
                     scoreValue += bonusValue;
                     this.scoreLabel.text = "Score: " + scoreValue;
-
-
+                    bonusValue = 9999;
+                    changeScene();
                 }
                 if (event.name === "Coin") {
                     createjs.Sound.play("coin");

@@ -93,6 +93,9 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._restartButton.on("click", function (event) {
+                scoreValue = 0;
+                livesValue = 5;
+                bonusValue = 9999;
                 currentScene = config.Scene.PLAY;
                 changeScene();
             });

@@ -292,9 +292,9 @@ module scenes {
             this.mouseControls = new objects.MouseControls()
 
             // initialize  score and lives values
-            scoreValue = 0;
-            livesValue = 5;
-            bonusValue = 9999;
+            //scoreValue = 0;
+            //livesValue = 5;
+            //bonusValue = 9999;
         }
         /**
          * This method sets up the scoreboard for the scene
@@ -382,15 +382,15 @@ module scenes {
          * @return void
          */
         private addLavaFloor(): void {
-            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/lava.gif');
+            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/water-texture.jpg');
             this.groundTexture.wrapS = THREE.RepeatWrapping;
             this.groundTexture.wrapT = THREE.RepeatWrapping;
-            this.groundTexture.repeat.set(50, 50);
+            this.groundTexture.repeat.set(1, 1);
 
             this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/RockErodeNormal.png');
             this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
             this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
-            this.groundTextureNormal.repeat.set(50, 50);
+            this.groundTextureNormal.repeat.set(1, 1);
 
             this.groundMaterial = new PhongMaterial();
             this.groundMaterial.map = this.groundTexture;
@@ -907,7 +907,7 @@ module scenes {
 
         private setDoor(): void {
 
-            this.door1Texture = new THREE.TextureLoader().load('../../Assets/images/doorsTextureNo6901.jpg');
+            this.door1Texture = new THREE.TextureLoader().load('../../Assets/images/doorsTextureNo3515.jpg');
 
             this.door1Material = new PhongMaterial();
             this.door1Material.map = this.door1Texture;
@@ -1244,6 +1244,9 @@ module scenes {
                         document.exitPointerLock();
                         this.children = []; //Clean up children objects
                         console.log(this);
+                        if (scoreValue > highestScore) {
+                            highestScore = scoreValue;
+                        }
                         currentScene = config.Scene.OVER;
                         changeScene();
                     }
@@ -1418,11 +1421,10 @@ module scenes {
                     console.log("Booped Door 1");
                     document.exitPointerLock();
                     currentScene = config.Scene.PLAY3;
-                    changeScene();
                     scoreValue += bonusValue;
                     this.scoreLabel.text = "Score: " + scoreValue;
-
-
+                    bonusValue = 9999;
+                    changeScene();
                 }
                 if (event.name === "Coin") {
                     createjs.Sound.play("coin");

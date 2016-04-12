@@ -115,6 +115,9 @@ module scenes {
             });
 
             this._restartButton.on("click", (event: createjs.MouseEvent) => {
+                scoreValue = 0;
+                livesValue = 5
+                bonusValue = 9999;
                 currentScene = config.Scene.PLAY;
                 changeScene();
             });
