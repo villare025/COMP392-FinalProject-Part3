@@ -78,6 +78,9 @@ module scenes {
          * @return void
          */
         public start(): void {
+            var myIntroBGMusic = createjs.Sound.play("museIntro");
+            myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
+
             this.name = "Menu Scene";
             this._gameLabel = new createjs.Text(
                 "THE A-MAZE-ING RACE",
@@ -106,17 +109,19 @@ module scenes {
 
             this._startButton.on("click", (event: createjs.MouseEvent) => {
                 currentScene = config.Scene.PLAY;
+                myIntroBGMusic.stop();
                 changeScene();
+                
             });
-            
+
             this._instructionButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
             this._instructionButton.regX = this._instructionButton.getBounds().width * 0.5;
             this._instructionButton.regY = this._instructionButton.getBounds().height * 0.5;
             this._instructionButton.x = config.Screen.WIDTH * 0.75;
             this._instructionButton.y = (config.Screen.HEIGHT * 0.5) + 150;
             this._stage.addChild(this._instructionButton);
-            
-             this._instructionButton.on("mouseover", (event: createjs.MouseEvent) => {
+
+            this._instructionButton.on("mouseover", (event: createjs.MouseEvent) => {
                 event.target.alpha = 0.7;
             });
 
@@ -126,16 +131,17 @@ module scenes {
 
             this._instructionButton.on("click", (event: createjs.MouseEvent) => {
                 currentScene = config.Scene.INSTRUCTIONS;
+                myIntroBGMusic.stop();
                 changeScene();
             });
-            
+
             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
             this._exitButton.regX = this._exitButton.getBounds().width * 0.5;
             this._exitButton.regY = this._exitButton.getBounds().height * 0.5;
             this._exitButton.x = config.Screen.WIDTH * 0.5;
             this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 200;
             this._stage.addChild(this._exitButton);
-            
+
             this._exitButton.on("mouseover", (event: createjs.MouseEvent) => {
                 event.target.alpha = 0.7;
             });

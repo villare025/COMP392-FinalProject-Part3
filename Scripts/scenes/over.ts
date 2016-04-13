@@ -69,6 +69,8 @@ module scenes {
          * @return void
          */
         public start(): void {
+            var myOverBGMusic = createjs.Sound.play("museOver");
+            myOverBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             this._gameOverLabel = new createjs.Text(
                 "GAME OVER",
                 "80px Consolas",
@@ -119,6 +121,7 @@ module scenes {
                 livesValue = 5
                 bonusValue = 9999;
                 currentScene = config.Scene.PLAY;
+                myOverBGMusic.stop();
                 changeScene();
             });
         }

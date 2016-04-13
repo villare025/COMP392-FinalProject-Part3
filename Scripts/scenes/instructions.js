@@ -63,6 +63,8 @@ var scenes;
          * @return void
          */
         Instructions.prototype.start = function () {
+            var myIntroBGMusic = createjs.Sound.play("museIntro");
+            myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             this._gameLabel = new createjs.Text("INSTRUCTIONS", "80px Consolas", "#000000");
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
             this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
@@ -83,6 +85,7 @@ var scenes;
             });
             this._startButton.on("click", function (event) {
                 currentScene = config.Scene.PLAY;
+                myIntroBGMusic.stop();
                 changeScene();
             });
             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
@@ -99,6 +102,7 @@ var scenes;
             });
             this._exitButton.on("click", function (event) {
                 currentScene = config.Scene.INSTRUCTIONS;
+                myIntroBGMusic.stop();
                 changeScene();
             });
         };

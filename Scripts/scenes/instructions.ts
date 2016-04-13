@@ -69,7 +69,9 @@ module scenes {
          * @return void
          */
         public start(): void {
-
+            var myIntroBGMusic = createjs.Sound.play("museIntro");
+            myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
+            
             this._gameLabel = new createjs.Text(
                 "INSTRUCTIONS",
                 "80px Consolas",
@@ -97,6 +99,7 @@ module scenes {
 
             this._startButton.on("click", (event: createjs.MouseEvent) => {
                 currentScene = config.Scene.PLAY;
+                myIntroBGMusic.stop();
                 changeScene();
             });
 
@@ -117,6 +120,7 @@ module scenes {
 
             this._exitButton.on("click", (event: createjs.MouseEvent) => {
                 currentScene = config.Scene.INSTRUCTIONS;
+                myIntroBGMusic.stop();
                 changeScene();
             });
         }

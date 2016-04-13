@@ -69,6 +69,8 @@ var scenes;
          * @return void
          */
         Menu.prototype.start = function () {
+            var myIntroBGMusic = createjs.Sound.play("museIntro");
+            myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             this.name = "Menu Scene";
             this._gameLabel = new createjs.Text("THE A-MAZE-ING RACE", "80px Consolas", "#000000");
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
@@ -90,6 +92,7 @@ var scenes;
             });
             this._startButton.on("click", function (event) {
                 currentScene = config.Scene.PLAY;
+                myIntroBGMusic.stop();
                 changeScene();
             });
             this._instructionButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
@@ -106,6 +109,7 @@ var scenes;
             });
             this._instructionButton.on("click", function (event) {
                 currentScene = config.Scene.INSTRUCTIONS;
+                myIntroBGMusic.stop();
                 changeScene();
             });
             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));

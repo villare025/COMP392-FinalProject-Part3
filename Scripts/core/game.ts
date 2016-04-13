@@ -71,8 +71,11 @@ var manifest = [
     { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
-    { id: "muse", src: "../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3" },
-
+    { id: "museIntro", src: "../../Assets/audio/Living-with-Determination-P3-Reincarnation.mp3" },
+    { id: "museOver", src: "../../Assets/audio/It's-Alright...-Persona3.mp3" },
+    { id: "museFirst", src: "../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3" },
+    { id: "museSecond", src: "../../Assets/audio/TheSnowQueen-Persona3FES.mp3" },
+    { id: "museThird", src: "../../Assets/audio/UnavoidableBattle-P3-Reincarnation.mp3" }
 ];
 
 function preload(): void {

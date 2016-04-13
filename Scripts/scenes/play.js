@@ -770,11 +770,6 @@ var scenes;
                 this.remove(this.ground);
                 this.ground.position.y += 0.0054;
                 this.add(this.ground);
-                /*
-                this.remove(this.platform1);
-                this.platform1.position.x += 0.005;
-                this.add(this.platform1);
-                */
                 var time = performance.now();
                 var delta = (time - this.prevTime) / 1000;
                 // For a smoother jump, have the movements outside the isGrounded method.
@@ -939,9 +934,7 @@ var scenes;
             // Add custom coin imported from Blender
             this.setCoinMesh();
             // Stop the layering of the background music aka just play ONCE dammit
-            // Via AbstractSoundInstance
-            //createjs.Sound.play("muse", 0, 0, 0, -1, 1);
-            var myBGMusic = createjs.Sound.play("../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3");
+            var myBGMusic = createjs.Sound.play("museFirst");
             myBGMusic.stop();
             myBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             // Collision Check
@@ -1131,7 +1124,7 @@ var scenes;
                     document.exitPointerLock();
                     currentScene = config.Scene.PLAY2;
                     scoreValue += bonusValue;
-                    _this.scoreLabel.text = "Score: " + scoreValue;
+                    _this.scoreLabel.text = "SCORE: " + scoreValue;
                     bonusValue = 9999;
                     changeScene();
                 }
@@ -1139,7 +1132,7 @@ var scenes;
                     createjs.Sound.play("coin");
                     scene.remove(event);
                     scoreValue += 100;
-                    _this.scoreLabel.text = "Score: " + scoreValue;
+                    _this.scoreLabel.text = "SCORE: " + scoreValue;
                 }
             });
             // Create parent-child relationship with camera and player
