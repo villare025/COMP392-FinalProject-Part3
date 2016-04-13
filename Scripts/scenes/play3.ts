@@ -32,6 +32,7 @@ module scenes {
         private groundGeometry: CubeGeometry;
         private groundPhysicsMaterial: Physijs.Material;
         private groundMaterial: PhongMaterial;
+        private groundPMaterial: Physijs.Material;
         private ground: Physijs.Mesh;
         private groundTexture: Texture;
         private groundTextureNormal: Texture;
@@ -388,26 +389,23 @@ module scenes {
             this.groundTexture.wrapT = THREE.RepeatWrapping;
             this.groundTexture.repeat.set(50, 50);
 
-            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/RockErodeNormal.png');
-            this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
-            this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
-            this.groundTextureNormal.repeat.set(50, 50);
-
             this.groundMaterial = new PhongMaterial();
             this.groundMaterial.map = this.groundTexture;
-            //this.groundMaterial.bumpMap = this.groundTextureNormal;
             this.groundMaterial.bumpScale = 0.2;
+
+
+            this.groundPMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x404040 }), 0.4, 0);
 
             this.groundGeometry = new BoxGeometry(150, 1, 150);
             this.groundPhysicsMaterial = Physijs.createMaterial(this.groundMaterial, 0, 0);
-            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPhysicsMaterial, 0);
+            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPMaterial, 0);
             this.ground.receiveShadow = true;
             this.ground.name = "Lava floor";
             this.ground.position.set(0, -50, 0);
             this.add(this.ground);
             console.log("Added Lava floor to scene");
         }
-
+        
         /**
          * Adds the player controller to the scene
          * 
@@ -1142,6 +1140,7 @@ module scenes {
                 
                 // For Switching Scenes
                 if (this.keyboardControls.switchLevelOne) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1152,6 +1151,7 @@ module scenes {
                     changeScene();
                 }
                 if (this.keyboardControls.switchLevelTwo) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1160,8 +1160,9 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY2;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchLevelThree) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1170,8 +1171,9 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY3;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchMenu) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1180,8 +1182,9 @@ module scenes {
                     }
                     currentScene = config.Scene.MENU;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchOver) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1192,6 +1195,7 @@ module scenes {
                     changeScene();
                 }
                 if (this.keyboardControls.switchInstructions) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1201,7 +1205,7 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
-                
+
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));
@@ -1454,6 +1458,7 @@ module scenes {
                     this.isGrounded = true;
                 }
 
+                //if (event.name === "Platform1" || "Platform2" || "Platform3" || "Platform4" || "Platform5") {
                 if (event.name === "Platform1") {
                     console.log("Booped Platform 1");
                     this.isGrounded = true;

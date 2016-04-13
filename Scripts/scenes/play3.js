@@ -147,17 +147,13 @@ var scenes;
             this.groundTexture.wrapS = THREE.RepeatWrapping;
             this.groundTexture.wrapT = THREE.RepeatWrapping;
             this.groundTexture.repeat.set(50, 50);
-            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/RockErodeNormal.png');
-            this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
-            this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
-            this.groundTextureNormal.repeat.set(50, 50);
             this.groundMaterial = new PhongMaterial();
             this.groundMaterial.map = this.groundTexture;
-            //this.groundMaterial.bumpMap = this.groundTextureNormal;
             this.groundMaterial.bumpScale = 0.2;
+            this.groundPMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x404040 }), 0.4, 0);
             this.groundGeometry = new BoxGeometry(150, 1, 150);
             this.groundPhysicsMaterial = Physijs.createMaterial(this.groundMaterial, 0, 0);
-            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPhysicsMaterial, 0);
+            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPMaterial, 0);
             this.ground.receiveShadow = true;
             this.ground.name = "Lava floor";
             this.ground.position.set(0, -50, 0);
@@ -813,6 +809,7 @@ var scenes;
                 this.prevTime = time;
                 // For Switching Scenes
                 if (this.keyboardControls.switchLevelOne) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -823,6 +820,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchLevelTwo) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -833,6 +831,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchLevelThree) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -843,6 +842,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchMenu) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -853,6 +853,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchOver) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -863,6 +864,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchInstructions) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -1094,6 +1096,7 @@ var scenes;
                     console.log("Booped Road32");
                     _this.isGrounded = true;
                 }
+                //if (event.name === "Platform1" || "Platform2" || "Platform3" || "Platform4" || "Platform5") {
                 if (event.name === "Platform1") {
                     console.log("Booped Platform 1");
                     _this.isGrounded = true;

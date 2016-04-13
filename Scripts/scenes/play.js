@@ -813,6 +813,7 @@ var scenes;
                 this.prevTime = time;
                 // For Switching Scenes
                 if (this.keyboardControls.switchLevelOne) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -823,6 +824,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchLevelTwo) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -833,6 +835,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchLevelThree) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -853,6 +856,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchOver) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
@@ -863,6 +867,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchInstructions) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
                     console.log(this);
