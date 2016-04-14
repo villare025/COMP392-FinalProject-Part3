@@ -206,6 +206,8 @@ module scenes {
         private road32: Physijs.Mesh;
 
         //PlatformObjects
+        private mainPlatformTexture: Texture;
+        private platformTexture: Texture;
 
         private platform1PhysicsMaterial: Physijs.Material;
         private platform1Geometry: CubeGeometry;
@@ -809,13 +811,14 @@ module scenes {
       */
 
         private addPlatforms(): void {
-            // Platform Components
+             // Platform Components
+            this.mainPlatformTexture = new THREE.TextureLoader().load('../../Assets/images/MarbleGreen.jpg');
+            this.platformTexture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
 
             //Platform One
-            this.platform1Texture = new THREE.TextureLoader().load('../../Assets/images/MarbleGreen.jpg');
 
             this.platform1Material = new PhongMaterial();
-            this.platform1Material.map = this.platform1Texture;
+            this.platform1Material.map = this.mainPlatformTexture;
             this.platform1Material.bumpScale = 0.2;
 
             this.platform1Geometry = new BoxGeometry(5, 6, 5);
@@ -829,10 +832,9 @@ module scenes {
             console.log("Added a Platform 1 to the scene");
 
             //Platform Two
-            this.platform2Texture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
 
             this.platform2Material = new PhongMaterial();
-            this.platform2Material.map = this.platform2Texture;
+            this.platform2Material.map = this.platformTexture;
             this.platform2Material.bumpScale = 0.2;
 
             this.platform2Geometry = new BoxGeometry(5, 6, 5);
@@ -846,10 +848,8 @@ module scenes {
             console.log("Added a Platform 2 to the scene");
 
             //Platform Three
-            this.platform3Texture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
-
             this.platform3Material = new PhongMaterial();
-            this.platform3Material.map = this.platform3Texture;
+            this.platform3Material.map = this.platformTexture;
             this.platform3Material.bumpScale = 0.2;
 
             this.platform3Geometry = new BoxGeometry(5, 6, 5);
@@ -863,10 +863,9 @@ module scenes {
             console.log("Added a Platform 3 to the scene");
 
             //Platform 4
-            this.platform4Texture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
 
             this.platform4Material = new PhongMaterial();
-            this.platform4Material.map = this.platform4Texture;
+            this.platform4Material.map = this.platformTexture;
             this.platform4Material.bumpScale = 0.2;
 
             this.platform4Geometry = new BoxGeometry(5, 6, 5);
@@ -880,10 +879,9 @@ module scenes {
             console.log("Added a Platform 4 to the scene");
 
             //Platform 5
-            this.platform4Texture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
 
             this.platform5Material = new PhongMaterial();
-            this.platform5Material.map = this.platform4Texture;
+            this.platform5Material.map = this.platformTexture;
             this.platform5Material.bumpScale = 0.2;
 
             this.platform5Geometry = new BoxGeometry(5, 6, 5);
