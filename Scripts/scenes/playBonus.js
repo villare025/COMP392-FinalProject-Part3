@@ -585,14 +585,14 @@ var scenes;
                 }
             });
             // Create parent-child relationship with camera and player
-            //this.player.add(camera);
-            //camera.rotation.set(0, 0, 0);
-            //camera.position.set(0, 1, 0);
+            this.player.add(camera);
+            camera.rotation.set(0, 0, 0);
+            camera.position.set(0, 1, 0);
             // For level-building only 
             // Sees a bird's eye view of the level
-            camera = new PerspectiveCamera(35, config.Screen.RATIO, 0.1, 300);
-            camera.position.set(0, 100, 100);
-            camera.lookAt(new Vector3(0, 0, 0));
+            //camera = new PerspectiveCamera(35, config.Screen.RATIO, 0.1, 300);
+            //camera.position.set(0, 100, 100);
+            //camera.lookAt(new Vector3(0, 0, 0));
             this.simulate();
         };
         /**
