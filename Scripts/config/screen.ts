@@ -13,6 +13,7 @@ module config {
         public static INSTRUCTIONS: number = 3;
         public static PLAY2: number = 4;
         public static PLAY3: number = 5;
+        public static PLAYBONUS: number = 6;
     }
     
 }

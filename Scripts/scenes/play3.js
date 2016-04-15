@@ -6,8 +6,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 /**
  * Source File Name: play3.ts
  * Authors: Angelina Gutierrez and Elaine Mae Villarino
- * Last Modified by: Elaine Mae Villarino
- * Date last modified: April 11, 2016
+ * Last Modified by: Angelina Gutierrez
+ * Date last modified: April 14, 2016
  * Program description: Creates the third level of the game
  */
 /**
@@ -769,6 +769,16 @@ var scenes;
                         highestScore = scoreValue;
                     }
                     currentScene = config.Scene.INSTRUCTIONS;
+                    changeScene();
+                }
+                if (this.keyboardControls.switchBonus) {
+                    document.exitPointerLock();
+                    this.children = [];
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAYBONUS;
                     changeScene();
                 }
             } // Controls Enabled ends

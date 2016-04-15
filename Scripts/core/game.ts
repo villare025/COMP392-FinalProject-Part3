@@ -53,6 +53,7 @@ var highestScore: number = 0;
 var play: scenes.Play;
 var play2: scenes.Play2;
 var play3: scenes.Play3;
+var playBonus: scenes.playBonus;
 var menu: scenes.Menu;
 var over: scenes.Over;
 var instructions: scenes.Instructions;
@@ -103,7 +104,7 @@ function init(): void {
     setupCamera();
 
     // set initial scene
-    currentScene = config.Scene.MENU;
+    currentScene = config.Scene.PLAYBONUS;
     changeScene();
 
     // Add framerate stats
@@ -208,6 +209,11 @@ function changeScene(): void {
             scene = play3;
             console.log("Starting LEVEL 3");
             break;
+        case config.Scene.PLAYBONUS:
+            //Show bonus level
+            playBonus = new scenes.playBonus();
+            scene = playBonus;
+            console.log("Starting BONUS LEVEL");
     }
 }
 

@@ -19,6 +19,7 @@ var config;
         Scene.INSTRUCTIONS = 3;
         Scene.PLAY2 = 4;
         Scene.PLAY3 = 5;
+        Scene.PLAYBONUS = 6;
         return Scene;
     }());
     config.Scene = Scene;

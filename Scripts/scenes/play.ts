@@ -1203,6 +1203,16 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
+                 if (this.keyboardControls.switchBonus) {
+                    document.exitPointerLock();
+                    this.children = [];
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAYBONUS;
+                    changeScene();
+                }
                 
             } // Controls Enabled ends
             else {

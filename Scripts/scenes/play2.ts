@@ -1,8 +1,8 @@
 /**
  * Source File Name: play2.ts
  * Authors: Angelina Gutierrez and Elaine Mae Villarino
- * Last Modified by: Elaine Mae Villarino
- * Date last modified: April 11, 2016
+ * Last Modified by: Angelina Gutierrez
+ * Date last modified: April 14, 2016
  * Program description: Creates the second level of the game
  */
 /**
@@ -1040,6 +1040,16 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
+                 if (this.keyboardControls.switchBonus) {
+                    document.exitPointerLock();
+                    this.children = [];
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAYBONUS;
+                    changeScene();
+                }
                 
             } // Controls Enabled ends
             else {
@@ -1261,7 +1271,7 @@ module scenes {
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.PLAY3;
+                    currentScene = config.Scene.PLAYBONUS;
                     scoreValue += bonusValue;
                     this.scoreLabel.text = "SCORE: " + scoreValue;
                     bonusValue = 9999;

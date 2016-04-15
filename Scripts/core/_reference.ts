@@ -9,3 +9,4 @@
 /// <reference path="../scenes/over.ts" />
 /// <reference path="../scenes/menu.ts" />
 /// <reference path="../scenes/instructions.ts" />
+/// <reference path="../scenes/playBonus.ts" />

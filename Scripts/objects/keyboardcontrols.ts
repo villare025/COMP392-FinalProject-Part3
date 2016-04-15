@@ -15,6 +15,7 @@ module objects {
         public switchMenu: boolean;
         public switchOver: boolean;
         public switchInstructions: boolean;
+        public switchBonus: boolean;
         // CONSTRUCTOR ++++++++++++++++++++++++++    
         constructor() {
             this.enabled = false;
@@ -68,6 +69,10 @@ module objects {
                     break;
                 case 72: /*H=Instructions*/
                     this.switchInstructions = true;
+                    break;
+                case 66: /*B=Bonus*/
+                    this.switchBonus = true;
+                    break;
             }
         }
 

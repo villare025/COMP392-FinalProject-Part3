@@ -6,8 +6,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 /**
  * Source File Name: play2.ts
  * Authors: Angelina Gutierrez and Elaine Mae Villarino
- * Last Modified by: Elaine Mae Villarino
- * Date last modified: April 11, 2016
+ * Last Modified by: Angelina Gutierrez
+ * Date last modified: April 14, 2016
  * Program description: Creates the second level of the game
  */
 /**
@@ -725,6 +725,16 @@ var scenes;
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
+                if (this.keyboardControls.switchBonus) {
+                    document.exitPointerLock();
+                    this.children = [];
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAYBONUS;
+                    changeScene();
+                }
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));
@@ -914,7 +924,7 @@ var scenes;
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.PLAY3;
+                    currentScene = config.Scene.PLAYBONUS;
                     scoreValue += bonusValue;
                     _this.scoreLabel.text = "SCORE: " + scoreValue;
                     bonusValue = 9999;

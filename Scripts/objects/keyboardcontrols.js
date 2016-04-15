@@ -53,6 +53,10 @@ var objects;
                     break;
                 case 72:
                     this.switchInstructions = true;
+                    break;
+                case 66:
+                    this.switchBonus = true;
+                    break;
             }
         };
         KeyboardControls.prototype.onKeyUp = function (event) {
