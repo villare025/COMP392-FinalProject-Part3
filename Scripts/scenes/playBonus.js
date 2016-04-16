@@ -470,6 +470,17 @@ var scenes;
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
+                if (this.keyboardControls.switchBonus) {
+                    createjs.Sound.muted = true;
+                    document.exitPointerLock();
+                    this.children = [];
+                    console.log(this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.PLAYBONUS;
+                    changeScene();
+                }
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));

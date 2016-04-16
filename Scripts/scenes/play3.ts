@@ -1092,8 +1092,9 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
-                
-                 if (this.keyboardControls.switchBonus) {
+
+                if (this.keyboardControls.switchBonus) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = [];
                     console.log(this);
@@ -1370,9 +1371,9 @@ module scenes {
             });
 
             // Create parent-child relationship with camera and player
-             this.player.add(camera);
-             camera.rotation.set(0, 0, 0);
-             camera.position.set(0, 1, 0);
+            this.player.add(camera);
+            camera.rotation.set(0, 0, 0);
+            camera.position.set(0, 1, 0);
 
             // For level-building only 
             // Sees a bird's eye view of the level

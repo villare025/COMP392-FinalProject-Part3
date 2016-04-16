@@ -515,7 +515,7 @@ module scenes {
             this.add(this.road6);
             console.log("Added a Road 6 to the scene");
             
-             // Road Seven
+            // Road Seven
             this.road7Geometry = new BoxGeometry(90, 4, 1);
             this.road7PhysicsMaterial = Physijs.createMaterial(this.roadMainMaterial, 0, 0);
             this.road7 = new Physijs.BoxMesh(this.road7Geometry, this.road7PhysicsMaterial, 0);
@@ -581,7 +581,7 @@ module scenes {
             this.add(this.road12);
             console.log("Added a Road 12 to the scene");
             
-              // Road Thirteen
+            // Road Thirteen
             this.road13Geometry = new BoxGeometry(50, 4, 1);
             this.road13PhysicsMaterial = Physijs.createMaterial(this.roadMainMaterial, 0, 0);
             this.road13 = new Physijs.BoxMesh(this.road13Geometry, this.road13PhysicsMaterial, 0);
@@ -592,7 +592,7 @@ module scenes {
             this.add(this.road13);
             console.log("Added a Road 13 to the scene");
             
-             // Road Fourteen
+            // Road Fourteen
             this.road14Geometry = new BoxGeometry(50, 4, 1);
             this.road14PhysicsMaterial = Physijs.createMaterial(this.roadMainMaterial, 0, 0);
             this.road14 = new Physijs.BoxMesh(this.road14Geometry, this.road14PhysicsMaterial, 0);
@@ -614,7 +614,7 @@ module scenes {
             this.add(this.road15);
             console.log("Added a Road 15 to the scene");
             
-             // Road Sixteen
+            // Road Sixteen
             this.road16Geometry = new BoxGeometry(1.5, 4, 40);
             this.road16PhysicsMaterial = Physijs.createMaterial(this.roadMainMaterial, 0, 0);
             this.road16 = new Physijs.BoxMesh(this.road16Geometry, this.road16PhysicsMaterial, 0);
@@ -636,7 +636,7 @@ module scenes {
             this.add(this.road17);
             console.log("Added a Road 17 to the scene");
 
-            
+
         }
 
         /**
@@ -939,10 +939,10 @@ module scenes {
                 if (this.keyboardControls.moveRight) {
                     this.velocity.x += 400.0 * delta;
                 }
-                
+
                 if (this.isGrounded) {
                     var direction = new Vector3(0, 0, 0);
-                    
+
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
                         if (this.player.position.y > 5) {
@@ -995,7 +995,7 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY2;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchLevelThree) {
                     createjs.Sound.muted = true;
                     document.exitPointerLock();
@@ -1006,7 +1006,7 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY3;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchMenu) {
                     createjs.Sound.muted = true;
                     document.exitPointerLock();
@@ -1017,7 +1017,7 @@ module scenes {
                     }
                     currentScene = config.Scene.MENU;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchOver) {
                     createjs.Sound.muted = true;
                     document.exitPointerLock();
@@ -1040,7 +1040,8 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
-                 if (this.keyboardControls.switchBonus) {
+                if (this.keyboardControls.switchBonus) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = [];
                     console.log(this);
@@ -1050,7 +1051,7 @@ module scenes {
                     currentScene = config.Scene.PLAYBONUS;
                     changeScene();
                 }
-                
+
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));

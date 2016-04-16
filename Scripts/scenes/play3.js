@@ -772,6 +772,7 @@ var scenes;
                     changeScene();
                 }
                 if (this.keyboardControls.switchBonus) {
+                    createjs.Sound.muted = true;
                     document.exitPointerLock();
                     this.children = [];
                     console.log(this);
