@@ -966,8 +966,16 @@ var scenes;
                         if (scoreValue > highestScore) {
                             highestScore = scoreValue;
                         }
-                        currentScene = config.Scene.OVER;
-                        changeScene();
+                        if (scoreValue <= 5000) {
+                            currentScene = config.Scene.PLAYBONUS;
+                            livesValue = 1;
+                            bonusValue = 9999;
+                            changeScene();
+                        }
+                        else {
+                            currentScene = config.Scene.OVER;
+                            changeScene();
+                        }
                     }
                     else {
                         //Reset player, update lives

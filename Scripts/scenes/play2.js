@@ -816,8 +816,16 @@ var scenes;
                         if (scoreValue > highestScore) {
                             highestScore = scoreValue;
                         }
-                        currentScene = config.Scene.OVER;
-                        changeScene();
+                        if (scoreValue <= 8000) {
+                            currentScene = config.Scene.PLAYBONUS;
+                            livesValue = 1;
+                            bonusValue = 9999;
+                            changeScene();
+                        }
+                        else {
+                            currentScene = config.Scene.OVER;
+                            changeScene();
+                        }
                     }
                     else {
                         //Reset player, update lives
@@ -924,7 +932,7 @@ var scenes;
                     createjs.Sound.play("door");
                     console.log("Booped Door 1");
                     document.exitPointerLock();
-                    currentScene = config.Scene.PLAYBONUS;
+                    currentScene = config.Scene.PLAY3;
                     scoreValue += bonusValue;
                     _this.scoreLabel.text = "SCORE: " + scoreValue;
                     bonusValue = 9999;

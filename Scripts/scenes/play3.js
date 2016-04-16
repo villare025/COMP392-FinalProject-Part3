@@ -186,7 +186,7 @@ var scenes;
          */
         Play3.prototype.addRoads = function () {
             // Road Components
-            this.roadMainTexture = new THREE.TextureLoader().load('../../Assets/images/RockSediment.jpg');
+            this.roadMainTexture = new THREE.TextureLoader().load('../../Assets/images/RockErode.jpg');
             this.roadMainTexture.wrapS = THREE.RepeatWrapping;
             this.roadMainTexture.wrapT = THREE.RepeatWrapping;
             this.roadMainTexture.repeat.set(15, 15);
@@ -862,8 +862,16 @@ var scenes;
                         if (scoreValue > highestScore) {
                             highestScore = scoreValue;
                         }
-                        currentScene = config.Scene.OVER;
-                        changeScene();
+                        if (scoreValue <= 16000) {
+                            currentScene = config.Scene.PLAYBONUS;
+                            livesValue = 1;
+                            bonusValue = 9999;
+                            changeScene();
+                        }
+                        else {
+                            currentScene = config.Scene.OVER;
+                            changeScene();
+                        }
                     }
                     else {
                         //Reset player, update lives

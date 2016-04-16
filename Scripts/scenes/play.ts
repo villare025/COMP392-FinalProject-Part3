@@ -811,7 +811,7 @@ module scenes {
       */
 
         private addPlatforms(): void {
-             // Platform Components
+            // Platform Components
             this.mainPlatformTexture = new THREE.TextureLoader().load('../../Assets/images/MarbleGreen.jpg');
             this.platformTexture = new THREE.TextureLoader().load('../../Assets/images/AbstractVarious.jpg');
 
@@ -1086,7 +1086,7 @@ module scenes {
                 this.remove(this.ground);
                 this.ground.position.y += 0.0054;
                 this.add(this.ground);
-                
+
                 var time: number = performance.now();
                 var delta: number = (time - this.prevTime) / 1000;
                 
@@ -1159,7 +1159,7 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY2;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchLevelThree) {
                     createjs.Sound.muted = true;
                     document.exitPointerLock();
@@ -1170,7 +1170,7 @@ module scenes {
                     }
                     currentScene = config.Scene.PLAY3;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchMenu) {
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
@@ -1180,7 +1180,7 @@ module scenes {
                     }
                     currentScene = config.Scene.MENU;
                     changeScene();
-                } 
+                }
                 if (this.keyboardControls.switchOver) {
                     createjs.Sound.muted = true;
                     document.exitPointerLock();
@@ -1203,7 +1203,7 @@ module scenes {
                     currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
-                 if (this.keyboardControls.switchBonus) {
+                if (this.keyboardControls.switchBonus) {
                     document.exitPointerLock();
                     this.children = [];
                     console.log(this);
@@ -1213,7 +1213,7 @@ module scenes {
                     currentScene = config.Scene.PLAYBONUS;
                     changeScene();
                 }
-                
+
             } // Controls Enabled ends
             else {
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));
@@ -1322,9 +1322,15 @@ module scenes {
                         if (scoreValue > highestScore) {
                             highestScore = scoreValue;
                         }
-                        currentScene = config.Scene.OVER;
-                        changeScene();
-
+                        if (scoreValue <= 5000) {
+                            currentScene = config.Scene.PLAYBONUS;
+                            livesValue = 1;
+                            bonusValue = 9999;
+                            changeScene();
+                        } else {
+                            currentScene = config.Scene.OVER;
+                            changeScene();
+                        }
                     }
                     else {
                         //Reset player, update lives

@@ -70,7 +70,8 @@ var manifest = [
     { id: "museOver", src: "../../Assets/audio/It's-Alright...-Persona3.mp3" },
     { id: "museFirst", src: "../../Assets/audio/toby-fox-UNDERTALE-Soundtrack-51-Another-Medium.mp3" },
     { id: "museSecond", src: "../../Assets/audio/TheSnowQueen-Persona3FES.mp3" },
-    { id: "museThird", src: "../../Assets/audio/UnavoidableBattle-P3-Reincarnation.mp3" }
+    { id: "museThird", src: "../../Assets/audio/UnavoidableBattle-P3-Reincarnation.mp3" },
+    { id: "museBonus", src: "../../Assets/audio/AndDestiny-Persona3TheMovie-MidsummerKnight'sDream.mp3" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();

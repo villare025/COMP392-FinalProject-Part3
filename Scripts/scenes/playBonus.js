@@ -119,7 +119,7 @@ var scenes;
          */
         playBonus.prototype.addAmbientLight = function () {
             // Add an AmbientLight to Scene
-            this.ambientLight = new AmbientLight(0xffffff);
+            this.ambientLight = new AmbientLight(0x404040);
             this.add(this.ambientLight);
             console.log("Added an Ambient Light to Scene");
         };
@@ -130,10 +130,10 @@ var scenes;
          * @return void
          */
         playBonus.prototype.addLavaFloor = function () {
-            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/lava.gif');
+            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/StarryVoid.png');
             this.groundTexture.wrapS = THREE.RepeatWrapping;
             this.groundTexture.wrapT = THREE.RepeatWrapping;
-            this.groundTexture.repeat.set(50, 50);
+            this.groundTexture.repeat.set(1, 1);
             this.groundMaterial = new PhongMaterial();
             this.groundMaterial.map = this.groundTexture;
             //this.groundMaterial.bumpMap = this.groundTextureNormal;
@@ -173,10 +173,10 @@ var scenes;
          */
         playBonus.prototype.addRoads = function () {
             // Road Components
-            this.roadMainTexture = new THREE.TextureLoader().load('../../Assets/images/floorsTextureNo4438.jpg');
+            this.roadMainTexture = new THREE.TextureLoader().load('../../Assets/images/MetalBase.jpg');
             this.roadMainTexture.wrapS = THREE.RepeatWrapping;
             this.roadMainTexture.wrapT = THREE.RepeatWrapping;
-            this.roadMainTexture.repeat.set(20, 20);
+            this.roadMainTexture.repeat.set(2, 2);
             this.roadMainMaterial = new PhongMaterial();
             this.roadMainMaterial.map = this.roadMainTexture;
             this.roadMainMaterial.bumpScale = 0.2;
@@ -361,7 +361,7 @@ var scenes;
                 this.velocity = new Vector3();
                 // Move the Lava Floor
                 this.remove(this.ground);
-                this.ground.position.y += 0.0054;
+                this.ground.position.y += 0.025;
                 this.add(this.ground);
                 var time = performance.now();
                 var delta = (time - this.prevTime) / 1000;
@@ -529,6 +529,9 @@ var scenes;
             this.addPlayer();
             // Add custom coin imported from Blender
             this.setCoinMesh();
+            // Stop the layering of the background music aka just play ONCE dammit
+            var myBGMusic = createjs.Sound.play("museBonus");
+            myBGMusic.play({ interrupt: "none", loop: -1, volume: 0.6 });
             //Collision check
             //Collision with death plane
             this.ground.addEventListener('collision', function (event) {
@@ -544,7 +547,14 @@ var scenes;
                 if (event.name === "Lava floor") {
                     createjs.Sound.play("lava");
                     console.log("Booped ground");
-                    currentScene = config.Scene.PLAY3;
+                    myBGMusic.stop();
+                    document.exitPointerLock();
+                    _this.children = []; //Clean up children objects
+                    console.log(_this);
+                    if (scoreValue > highestScore) {
+                        highestScore = scoreValue;
+                    }
+                    currentScene = config.Scene.OVER;
                     changeScene();
                 }
                 if (event.name === "Road1") {
