@@ -7,7 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
  * Source File Name: play.ts
  * Authors: Angelina Gutierrez and Elaine Mae Villarino
  * Last Modified by: Elaine Mae Villarino
- * Date last modified: April 11, 2016
+ * Date last modified: April 18, 2016
  * Program description: Creates the first level of the game
  */
 /**
@@ -840,38 +840,6 @@ var scenes;
                         highestScore = scoreValue;
                     }
                     currentScene = config.Scene.PLAY3;
-                    changeScene();
-                }
-                if (this.keyboardControls.switchMenu) {
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.MENU;
-                    changeScene();
-                }
-                if (this.keyboardControls.switchOver) {
-                    createjs.Sound.muted = true;
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.OVER;
-                    changeScene();
-                }
-                if (this.keyboardControls.switchInstructions) {
-                    createjs.Sound.muted = true;
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.INSTRUCTIONS;
                     changeScene();
                 }
                 if (this.keyboardControls.switchBonus) {

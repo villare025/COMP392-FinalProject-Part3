@@ -1,7 +1,7 @@
 //Source file name: over.ts
 //Authors: Angelina Gutierrez and Elaine Mae Villarino
-//Last modified by: 
-//Date last modified: 
+//Last modified by: Angelina Gutierrez
+//Date last modified: April 18, 2016
 //Program description: Creates the Game Over scene
 
 /**
@@ -78,7 +78,7 @@ module scenes {
             this._gameOverLabel.regX = this._gameOverLabel.getMeasuredWidth() * 0.5;
             this._gameOverLabel.regY = this._gameOverLabel.getMeasuredLineHeight() * 0.5;
             this._gameOverLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameOverLabel.y = config.Screen.HEIGHT * 0.5;
+            this._gameOverLabel.y = (config.Screen.HEIGHT * 0.5) - 200;
             this._stage.addChild(this._gameOverLabel);
 
             this._scoreLabel = new createjs.Text(
@@ -105,7 +105,7 @@ module scenes {
             this._restartButton.regX = this._restartButton.getBounds().width * 0.5;
             this._restartButton.regY = this._restartButton.getBounds().height * 0.5;
             this._restartButton.x = config.Screen.WIDTH * 0.5;
-            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 100;
+            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 200;
             this._stage.addChild(this._restartButton);
 
             this._restartButton.on("mouseover", (event: createjs.MouseEvent) => {

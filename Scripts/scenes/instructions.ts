@@ -1,7 +1,7 @@
 //Source file name: instructions.ts
 //Authors: Angelina Gutierrez and Elaine Mae Villarino
 //Last modified by: Angelina Gutierrez
-//Date last modified: April 06, 2016
+//Date last modified: April 18, 2016
 //Program description: Creates the instructions scene
 
 module scenes {
@@ -21,6 +21,9 @@ module scenes {
         private _blocker: HTMLElement;
         private _stage: createjs.Stage;
         private _gameLabel: createjs.Text;
+        private _instructionsLabel: createjs.Text;
+        private _instructionsLabel2: createjs.Text;
+        private _descriptionLabel: createjs.Text;
         private _startButton: createjs.Bitmap;
         private _exitButton: createjs.Bitmap;
 
@@ -71,7 +74,7 @@ module scenes {
         public start(): void {
             var myIntroBGMusic = createjs.Sound.play("museIntro");
             myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
-            
+
             this._gameLabel = new createjs.Text(
                 "INSTRUCTIONS",
                 "80px Consolas",
@@ -81,6 +84,32 @@ module scenes {
             this._gameLabel.x = config.Screen.WIDTH * 0.5;
             this._gameLabel.y = config.Screen.HEIGHT * 0.5;
             this._stage.addChild(this._gameLabel);
+
+            //Instructions text
+            
+            this._instructionsLabel = new createjs.Text(
+                "MOVE = WASD Keys   JUMP = Space Bar    CAMERA = Mouse",
+                "30px Consolas",
+                "#000000"
+            );
+            this._instructionsLabel.regX = this._instructionsLabel.getMeasuredWidth() * 0.5;
+            this._instructionsLabel.regY = this._instructionsLabel.getMeasuredLineHeight() * 0.5;
+            this._instructionsLabel.x = config.Screen.WIDTH * 0.5;
+            this._instructionsLabel.y = (config.Screen.HEIGHT * 0.5) - 125;
+            this._stage.addChild(this._instructionsLabel);
+
+            this._instructionsLabel2 = new createjs.Text(
+                "Get to the exit before the floor reaches the platform!",
+                "40px Consolas",
+                "#000000"
+            );
+            this._instructionsLabel2.regX = this._instructionsLabel2.getMeasuredWidth() * 0.5;
+            this._instructionsLabel2.regY = this._instructionsLabel2.getMeasuredLineHeight() * 0.5;
+            this._instructionsLabel2.x = config.Screen.WIDTH * 0.5;
+            this._instructionsLabel2.y = (config.Screen.HEIGHT * 0.5) - 50;
+            this._stage.addChild(this._instructionsLabel2);
+
+            //Buttons
 
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
             this._startButton.regX = this._startButton.getBounds().width * 0.5;

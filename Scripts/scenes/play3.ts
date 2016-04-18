@@ -2,7 +2,7 @@
  * Source File Name: play3.ts
  * Authors: Angelina Gutierrez and Elaine Mae Villarino
  * Last Modified by: Angelina Gutierrez
- * Date last modified: April 14, 2016
+ * Date last modified: April 18, 2016
  * Program description: Creates the third level of the game
  */
 /**
@@ -1059,39 +1059,7 @@ module scenes {
                     currentScene = config.Scene.PLAY3;
                     changeScene();
                 }
-                if (this.keyboardControls.switchMenu) {
-                    createjs.Sound.muted = true;
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.MENU;
-                    changeScene();
-                }
-                if (this.keyboardControls.switchOver) {
-                    createjs.Sound.muted = true;
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.OVER;
-                    changeScene();
-                }
-                if (this.keyboardControls.switchInstructions) {
-                    createjs.Sound.muted = true;
-                    document.exitPointerLock();
-                    this.children = []; //Clean up children objects
-                    console.log(this);
-                    if (scoreValue > highestScore) {
-                        highestScore = scoreValue;
-                    }
-                    currentScene = config.Scene.INSTRUCTIONS;
-                    changeScene();
-                }
+               
 
                 if (this.keyboardControls.switchBonus) {
                     createjs.Sound.muted = true;
