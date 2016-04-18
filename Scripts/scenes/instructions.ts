@@ -82,7 +82,7 @@ module scenes {
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
             this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
             this._gameLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameLabel.y = config.Screen.HEIGHT * 0.5;
+            this._gameLabel.y = (config.Screen.HEIGHT * 0.5) - 200;
             this._stage.addChild(this._gameLabel);
 
             //Instructions text
