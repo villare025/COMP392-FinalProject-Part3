@@ -686,6 +686,7 @@ module scenes {
                 if (event.name === "Lava floor") {
                     createjs.Sound.play("lava");
                     console.log("Booped ground");
+                     livesValue--;
                     myBGMusic.stop();
                     document.exitPointerLock();
                     this.children = []; //Clean up children objects
