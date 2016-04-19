@@ -21,6 +21,7 @@ module scenes {
         private _stage: createjs.Stage;
         private _scoreLabel: createjs.Text;
         private _highScoreLabel: createjs.Text;
+        private _restartLabel: createjs.Text;
         private _gameOverLabel: createjs.Text;
         private _restartButton: createjs.Bitmap;
         private _overbg: createjs.Bitmap;
@@ -111,12 +112,23 @@ module scenes {
             this._highScoreLabel.x = config.Screen.WIDTH * 0.5;
             this._highScoreLabel.y = (config.Screen.HEIGHT * 0.5) + 50;
             this._stage.addChild(this._highScoreLabel);
+            
+            this._restartLabel = new createjs.Text(
+                "Try again?",
+                "20px Century Gothic",
+                "#000000"
+            );
+            this._restartLabel.regX = this._restartLabel.getMeasuredWidth() * 0.5;
+            this._restartLabel.regY = this._restartLabel.getMeasuredLineHeight() * 0.5;
+            this._restartLabel.x = config.Screen.WIDTH * 0.5;
+            this._restartLabel.y = (config.Screen.HEIGHT * 0.5) + 400;
+            this._stage.addChild(this._restartLabel);
 
             this._restartButton = new createjs.Bitmap(assets.getResult("RestartButton"));
             this._restartButton.regX = this._restartButton.getBounds().width * 0.5;
             this._restartButton.regY = this._restartButton.getBounds().height * 0.5;
             this._restartButton.x = config.Screen.WIDTH * 0.5;
-            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 200;
+            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 250;
             this._stage.addChild(this._restartButton);
 
             this._restartButton.on("mouseover", (event: createjs.MouseEvent) => {

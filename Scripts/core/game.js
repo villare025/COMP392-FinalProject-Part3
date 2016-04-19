@@ -62,10 +62,10 @@ var manifest = [
     { id: "jump", src: "../../Assets/audio/Jump.wav" },
     { id: "door", src: "../../Assets/audio/doorUnlock.mp3" },
     { id: "lava", src: "../../Assets/audio/lavaburn.mp3" },
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.jpg" },
+    { id: "RestartButton", src: "../../Assets/images/RestartButton.jpg" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.jpg" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.jpg" },
     { id: "Keyboard", src: "../../Assets/images/wasd.png" },
     { id: "Spacebar", src: "../../Assets/images/spacebar.png" },
     { id: "Mouse", src: "../../Assets/images/mouse.png" },
@@ -99,7 +99,7 @@ function init() {
     // setup the camera
     setupCamera();
     // set initial scene
-    currentScene = config.Scene.MENU;
+    currentScene = config.Scene.OVER;
     changeScene();
     // Add framerate stats
     addStatsObject();

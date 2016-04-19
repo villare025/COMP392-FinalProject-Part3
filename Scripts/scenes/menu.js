@@ -95,8 +95,8 @@ var scenes;
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
             this._startButton.regX = this._startButton.getBounds().width * 0.5;
             this._startButton.regY = this._startButton.getBounds().height * 0.5;
-            this._startButton.x = config.Screen.WIDTH * 0.25;
-            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 150;
+            this._startButton.x = config.Screen.WIDTH * 0.5;
+            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 250;
             this._stage.addChild(this._startButton);
             this._startButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
@@ -112,8 +112,8 @@ var scenes;
             this._instructionButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
             this._instructionButton.regX = this._instructionButton.getBounds().width * 0.5;
             this._instructionButton.regY = this._instructionButton.getBounds().height * 0.5;
-            this._instructionButton.x = config.Screen.WIDTH * 0.75;
-            this._instructionButton.y = (config.Screen.HEIGHT * 0.5) + 150;
+            this._instructionButton.x = config.Screen.WIDTH * 0.65;
+            this._instructionButton.y = (config.Screen.HEIGHT * 0.5) + 250;
             this._stage.addChild(this._instructionButton);
             this._instructionButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
@@ -129,8 +129,8 @@ var scenes;
             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
             this._exitButton.regX = this._exitButton.getBounds().width * 0.5;
             this._exitButton.regY = this._exitButton.getBounds().height * 0.5;
-            this._exitButton.x = config.Screen.WIDTH * 0.5;
-            this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 200;
+            this._exitButton.x = 50;
+            this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 400;
             this._stage.addChild(this._exitButton);
             this._exitButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;

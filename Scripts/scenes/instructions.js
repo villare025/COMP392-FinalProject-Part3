@@ -115,7 +115,7 @@ var scenes;
             this._startButton.regX = this._startButton.getBounds().width * 0.5;
             this._startButton.regY = this._startButton.getBounds().height * 0.5;
             this._startButton.x = config.Screen.WIDTH * 0.5;
-            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 200;
+            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 300;
             this._stage.addChild(this._startButton);
             this._startButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
