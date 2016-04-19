@@ -72,7 +72,21 @@ var scenes;
             var myIntroBGMusic = createjs.Sound.play("museIntro");
             myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
             this.name = "Menu Scene";
-            this._gameLabel = new createjs.Text("THE A-MAZE-ING RACE", "80px Consolas", "#000000");
+            //Background
+            this._menubg = new createjs.Bitmap(assets.getResult("Menubg"));
+            this._menubg.regX = this._menubg.getBounds().width;
+            this._menubg.regY = this._menubg.getBounds().height;
+            this._menubg.x = config.Screen.WIDTH;
+            this._menubg.y = config.Screen.HEIGHT;
+            this._stage.addChild(this._menubg);
+            //logo
+            this._logo = new createjs.Bitmap(assets.getResult("Logo"));
+            this._logo.regX = this._logo.getBounds().width * 0.5;
+            this._logo.regY = this._logo.getBounds().height * 0.5;
+            this._logo.x = config.Screen.WIDTH * 0.5;
+            this._logo.y = (config.Screen.HEIGHT * 0.5) - 200;
+            this._stage.addChild(this._logo);
+            this._gameLabel = new createjs.Text("THE A-MAZE-ING RACE", "80px Century Gothic", "#000000");
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
             this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
             this._gameLabel.x = config.Screen.WIDTH * 0.5;

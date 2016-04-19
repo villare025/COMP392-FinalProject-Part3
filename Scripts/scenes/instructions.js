@@ -65,31 +65,57 @@ var scenes;
         Instructions.prototype.start = function () {
             var myIntroBGMusic = createjs.Sound.play("museIntro");
             myIntroBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
-            this._gameLabel = new createjs.Text("INSTRUCTIONS", "80px Consolas", "#000000");
+            //Background
+            this._menubg = new createjs.Bitmap(assets.getResult("Menubg"));
+            this._menubg.regX = this._menubg.getBounds().width;
+            this._menubg.regY = this._menubg.getBounds().height;
+            this._menubg.x = config.Screen.WIDTH;
+            this._menubg.y = config.Screen.HEIGHT;
+            this._stage.addChild(this._menubg);
+            this._gameLabel = new createjs.Text("INSTRUCTIONS", "80px Century Gothic", "#000000");
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
             this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
             this._gameLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameLabel.y = (config.Screen.HEIGHT * 0.5) - 200;
+            this._gameLabel.y = (config.Screen.HEIGHT * 0.5) - 250;
             this._stage.addChild(this._gameLabel);
+            //Images
+            this._keyboard = new createjs.Bitmap(assets.getResult("Keyboard"));
+            this._keyboard.regX = this._keyboard.getBounds().width * 0.5;
+            this._keyboard.regY = this._keyboard.getBounds().height * 0.5;
+            this._keyboard.x = config.Screen.WIDTH * 0.35;
+            this._keyboard.y = (config.Screen.HEIGHT * 0.5) + 40;
+            this._stage.addChild(this._keyboard);
+            this._spacebar = new createjs.Bitmap(assets.getResult("Spacebar"));
+            this._spacebar.regX = this._spacebar.getBounds().width * 0.5;
+            this._spacebar.regY = this._spacebar.getBounds().height * 0.5;
+            this._spacebar.x = config.Screen.WIDTH * 0.5;
+            this._spacebar.y = (config.Screen.HEIGHT * 0.5) + 40;
+            this._stage.addChild(this._spacebar);
+            this._mouse = new createjs.Bitmap(assets.getResult("Mouse"));
+            this._mouse.regX = this._mouse.getBounds().width * 0.5;
+            this._mouse.regY = this._mouse.getBounds().height * 0.5;
+            this._mouse.x = config.Screen.WIDTH * 0.65;
+            this._mouse.y = (config.Screen.HEIGHT * 0.5) + 40;
+            this._stage.addChild(this._mouse);
             //Instructions text
-            this._instructionsLabel = new createjs.Text("MOVE = WASD Keys   JUMP = Space Bar    CAMERA = Mouse", "30px Consolas", "#000000");
+            this._instructionsLabel = new createjs.Text("MOVE              JUMP            CAMERA", "30px Century Gothic", "#000000");
             this._instructionsLabel.regX = this._instructionsLabel.getMeasuredWidth() * 0.5;
             this._instructionsLabel.regY = this._instructionsLabel.getMeasuredLineHeight() * 0.5;
             this._instructionsLabel.x = config.Screen.WIDTH * 0.5;
-            this._instructionsLabel.y = (config.Screen.HEIGHT * 0.5) - 125;
+            this._instructionsLabel.y = (config.Screen.HEIGHT * 0.5) - 80;
             this._stage.addChild(this._instructionsLabel);
-            this._instructionsLabel2 = new createjs.Text("Get to the exit before the floor reaches the platform!", "40px Consolas", "#000000");
+            this._instructionsLabel2 = new createjs.Text("Get to the exit before the floor reaches the platform!", "40px Century Gothic", "#000000");
             this._instructionsLabel2.regX = this._instructionsLabel2.getMeasuredWidth() * 0.5;
             this._instructionsLabel2.regY = this._instructionsLabel2.getMeasuredLineHeight() * 0.5;
             this._instructionsLabel2.x = config.Screen.WIDTH * 0.5;
-            this._instructionsLabel2.y = (config.Screen.HEIGHT * 0.5) - 50;
+            this._instructionsLabel2.y = (config.Screen.HEIGHT * 0.5) + 120;
             this._stage.addChild(this._instructionsLabel2);
             //Buttons
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
             this._startButton.regX = this._startButton.getBounds().width * 0.5;
             this._startButton.regY = this._startButton.getBounds().height * 0.5;
             this._startButton.x = config.Screen.WIDTH * 0.5;
-            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 100;
+            this._startButton.y = (config.Screen.HEIGHT * 0.5) + 200;
             this._stage.addChild(this._startButton);
             this._startButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
@@ -99,23 +125,6 @@ var scenes;
             });
             this._startButton.on("click", function (event) {
                 currentScene = config.Scene.PLAY;
-                myIntroBGMusic.stop();
-                changeScene();
-            });
-            this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
-            this._exitButton.regX = this._exitButton.getBounds().width * 0.5;
-            this._exitButton.regY = this._exitButton.getBounds().height * 0.5;
-            this._exitButton.x = config.Screen.WIDTH * 0.2;
-            this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 50;
-            this._stage.addChild(this._exitButton);
-            this._exitButton.on("mouseover", function (event) {
-                event.target.alpha = 0.7;
-            });
-            this._exitButton.on("mouseout", function (event) {
-                event.target.alpha = 1.0;
-            });
-            this._exitButton.on("click", function (event) {
-                currentScene = config.Scene.INSTRUCTIONS;
                 myIntroBGMusic.stop();
                 changeScene();
             });

@@ -63,20 +63,27 @@ var scenes;
          */
         Over.prototype.start = function () {
             var myOverBGMusic = createjs.Sound.play("museOver");
+            //Background
+            this._overbg = new createjs.Bitmap(assets.getResult("Overbg"));
+            this._overbg.regX = this._overbg.getBounds().width;
+            this._overbg.regY = this._overbg.getBounds().height;
+            this._overbg.x = config.Screen.WIDTH;
+            this._overbg.y = config.Screen.HEIGHT;
+            this._stage.addChild(this._overbg);
             myOverBGMusic.play({ interrupt: "none", loop: -1, volume: 1 });
-            this._gameOverLabel = new createjs.Text("GAME OVER", "80px Consolas", "#000000");
+            this._gameOverLabel = new createjs.Text("GAME OVER", "80px Century Gothic", "#000000");
             this._gameOverLabel.regX = this._gameOverLabel.getMeasuredWidth() * 0.5;
             this._gameOverLabel.regY = this._gameOverLabel.getMeasuredLineHeight() * 0.5;
             this._gameOverLabel.x = config.Screen.WIDTH * 0.5;
             this._gameOverLabel.y = (config.Screen.HEIGHT * 0.5) - 200;
             this._stage.addChild(this._gameOverLabel);
-            this._scoreLabel = new createjs.Text("Your Score: " + scoreValue, "40px Consolas", "#000000");
+            this._scoreLabel = new createjs.Text("Your Score: " + scoreValue, "40px Century Gothic", "#000000");
             this._scoreLabel.regX = this._scoreLabel.getMeasuredWidth() * 0.5;
             this._scoreLabel.regY = this._scoreLabel.getMeasuredLineHeight() * 0.5;
             this._scoreLabel.x = config.Screen.WIDTH * 0.5;
             this._scoreLabel.y = config.Screen.HEIGHT * 0.5;
             this._stage.addChild(this._scoreLabel);
-            this._highScoreLabel = new createjs.Text("High Score: " + highestScore, "40px Consolas", "#000000");
+            this._highScoreLabel = new createjs.Text("High Score: " + highestScore, "40px Century Gothic", "#000000");
             this._highScoreLabel.regX = this._highScoreLabel.getMeasuredWidth() * 0.5;
             this._highScoreLabel.regY = this._highScoreLabel.getMeasuredLineHeight() * 0.5;
             this._highScoreLabel.x = config.Screen.WIDTH * 0.5;
